@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+<form-beans>
+<form-bean name="helloForm1" type="com.example.javawebtutor.form.HelloWorldForm"/>
+<form-bean name="helloForm" type="com.example.javawebtutor.form.HelloForm" />
+<form-bean name="InputForm" type="com.example.javawebtutor.form.InputFrom"/>
+<form-bean name="rf" type="com.example.javawebtutor.form.RegisterForm"/>
+</form-beans>
+<action-mappings>
+<action path="/register" type="com.example.javawebtutor.action.RegisterAction" name="rf" input="/register.jsp">
+<forward name="sucess" path="/Ab.jsp"/></action>
+<action name="helloForm" path="/hello" type="com.example.javawebtutor.action.HelloAction" scope="request">
+<forward name="fail" path="/Ab.jsp" />
+</action>
+<action name="InputForm" path="/ipath" type="com.example.javawebtutor.action.InputAction" scope="request"><forward name="result" path="/Results.jsp" /></action>
+</action-mappings>
+<message-resources parameter="com.example.tips.i18n.MessageBundle"></message-resources>
+<message-resources parameter="com.example.tips.i18n.myfile"></message-resources>
+</struts-config>
